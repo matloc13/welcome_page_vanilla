@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css?family=Federo|IM+Fell+DW+Pica&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Hind+Madurai:400,600&display=swap");
+body {
+  text-align: center;
+  background-color: #f4f6f9;
+  font-family: 'Hind Madurai', sans-serif;
+  margin: 0; }
+
+header {
+  width: 100%;
+  height: 100vh;
+  background-color: #16325c; }
+  header h1 {
+    color: #f4f6f9;
+    text-align: left;
+    font-family: 'Federo', sans-serif;
+    margin: 3%; }
+  header nav {
+    width: 100%;
+    position: sticky;
+    top: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+    header nav div {
+      grid-column: 2/4;
+      display: flex;
+      flex-direction: row-reverse;
+      background-color: #d8edff;
+      background-image: linear-gradient(to right, #16325c 25%, #d8edff 99%);
+      width: 100%; }
+      header nav div span {
+        padding: 1%;
+        margin: 0 1%;
+        color: #808fa6; }
+      header nav div .red {
+        color: #c23934; }
+
+section {
+  height: 100vh; }
+
+.bioDiv {
+  text-align: justify;
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0.5fr 1fr;
+  background-color: #ecf6ff; }
+  .bioDiv .head {
+    padding: 2%;
+    color: #16325c; }
+    .bioDiv .head h3 {
+      box-shadow: 0 1px #d25b57; }
+  .bioDiv .article {
+    width: 90%;
+    padding: 2%;
+    grid-column: 1/2;
+    box-shadow: 0 0 1px #bcc4d0; }
+  .bioDiv h2 {
+    grid-row: 3;
+    grid-column: 2/3;
+    justify-content: center;
+    margin: 0;
+    color: #c23934;
+    text-align: center; }
+  .bioDiv .table {
+    grid-column: 2/3;
+    grid-row: 4;
+    width: 90%;
+    padding: 2%; }
+    .bioDiv .table td {
+      color: #808fa6;
+      padding: 1%; }
+      .bioDiv .table td:hover {
+        color: #c23934; }
+
+.contact {
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center; }
+  .contact .title {
+    grid-column: 3/4;
+    text-align: right;
+    color: #16325c; }
+  .contact .contactCardContainer {
+    width: 100%;
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .contact .contactCardContainer .card {
+      background-image: linear-gradient(#f4f6f9, #d8edff);
+      padding: 7%;
+      height: 300px;
+      margin: 0 1% 1%; }
+      .contact .contactCardContainer .card a {
+        color: #c23934;
+        text-decoration: none; }
+
+.archive {
+  width: 100%;
+  background-color: #e0e5ee;
+  padding: 10% 3%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+
+footer {
+  color: #c23934;
+  background-color: #16325c;
+  padding: 6%;
+  display: flex;
+  flex-flow: row-reverse; }
+
+/*# sourceMappingURL=main.css.map */
