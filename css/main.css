@@ -88,7 +88,7 @@ section {
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center; }
   .contact .title {
-    grid-column: 3/4;
+    grid-column: 2/4;
     text-align: right;
     color: #16325c; }
   .contact .contactCardContainer {
