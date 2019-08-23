@@ -5,25 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/main.css">
-  <script src="app.js" charset="utf-8"></script>
+
   <title>Matthew Lockdall</title>
 </head>
 <body>
   <div class="container">
-  <header>
 
+  <header>
     <nav>
       <div>
-        <span>contact</span>
-        <span>bio</span>
-        <span class="red">archive</span>
+        <a href="#contact">contact</a>
+        <a href="#bio">bio</a>
+        <a href="#archive" class="red">archive</a>
       </div>
     </nav>
     <h1>Matthew Lockdall</h1>
-
   </header>
 
-<section className="bio">
+<section class="bio" id="bio">
   <div class="bioDiv">
     <div class="head">
       <h1>Matthew Lockdall</h1>
@@ -32,8 +31,8 @@
     <article class="article">
       <p>Matthew is a Chicago based Web Developer who enjoys the process of conceptualizing systems and design, and creating solutions to complex problems. My love for board game design has instilled in me the ability to break down a problem and see where the points of leverage exists. I value team collaboration and through my ability to see the big picture, I am often asked to take the lead when dealing with small tasks.</p>
     </article>
-    <h2>Skills</h2>
-    <table class="table">
+    <h2 class=" skill anim" data-delay=".6s">Skills</h2>
+    <table class="table anim" data-delay=".3s">
       <tr>
         <td>HTML5</td>
         <td>Javascript</td>
@@ -58,7 +57,7 @@
   </div>
 </section>
 
-<section class="archive">
+<section class="archive" id="archive">
   <ul>
     <li>Book-Shelf</li>
     <li>touring-interurban</li>
@@ -66,22 +65,22 @@
   </ul>
 </section>
 
-<section class="contact">
+<section class="contact" id="contact">
   <h2 class="title">
     If you like to find out more, feel free to connect with me on social media.
   </h2>
   <div class="contactCardContainer">
-    <div class="card">
+    <div class="card anim" data-delay=".1s">
       <a href="https://github.com/matloc13" target="_blank">
         github
       </a>
     </div>
-    <div class="card">
+    <div class="card anim" data-delay=".3s">
       <a href="https://www.linkedin.com/in/matthew-lockdall/" target="_blank">
         linkedin
       </a>
     </div>
-    <div class="card">
+    <div class="card anim" data-delay=".5s">
       <a href="mailto:mlockdall26@gmail.com" target="_blank">
         email
       </a>
@@ -94,5 +93,6 @@
 </footer>
 
 </div>
+  <script src="app.js" charset="utf-8"></script>
 </body>
 </html>
