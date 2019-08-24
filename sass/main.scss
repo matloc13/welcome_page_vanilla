@@ -152,14 +152,20 @@ section {
 
 .archive {
   width: 100%;
-  background-color: $lightgrey;
+  // background-color: $lightgrey;
+  background-image: linear-gradient($lightblue, $lightgrey);
   padding: 10% 3%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
+  h3 {
+    text-align: right;
+    box-shadow: 0 1px $red;
+  }
+
   ul {
-    grid-column: 2/3;
+    grid-column: 1/3;
 
     li {
       list-style: none;
