@@ -156,7 +156,25 @@ section {
   padding: 10% 3%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  ul {
+    grid-column: 2/3;
+
+    li {
+      list-style: none;
+    }
+
+    p {
+      font-weight: lighter;
+      margin: 3%;
+    }
+
+    a {
+      text-decoration: none;
+      color: $darkblue;
+    }
+  }
 }
 
 footer {
