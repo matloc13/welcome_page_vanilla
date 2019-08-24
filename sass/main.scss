@@ -9,7 +9,8 @@ $darkblue: rgb(22, 50, 92);
 
 .card,
 .skill,
-.table {
+.table,
+.tit {
   opacity: 0;
 }
 
@@ -192,12 +193,23 @@ footer {
 }
 @keyframes anim1 {
   from {
-    transform: translateY(-100px);
+    transform: translateY(-300px);
     opacity: 0;
   }
 
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes anim2 {
+  from {
+    transform: translateX(-550px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
     opacity: 1;
   }
 }
