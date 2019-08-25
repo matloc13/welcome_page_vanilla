@@ -30,6 +30,8 @@ const titobserver = new IntersectionObserver((entries, options) => {
   })
 })
 
+
+
 cards.forEach(c => {
   observer.observe(c)
 })
