@@ -89,6 +89,11 @@ section {
     padding: 2%;
     color: $darkblue;
 
+    a {
+      color: $red;
+      text-decoration: none;
+    }
+
     h3 {
       box-shadow: 0 1px lighten($red, 10%);
     }

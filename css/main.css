@@ -62,6 +62,9 @@ section {
   .bioDiv .head {
     padding: 2%;
     color: #16325c; }
+    .bioDiv .head a {
+      color: #c23934;
+      text-decoration: none; }
     .bioDiv .head h3 {
       box-shadow: 0 1px #d25b57; }
   .bioDiv .article {
