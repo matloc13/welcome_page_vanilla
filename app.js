@@ -2,6 +2,7 @@ console.log(1 + 1);
 const cards = document.querySelectorAll('.anim')
 const title = document.querySelectorAll('.tit')
 const body = document.querySelector('body')
+
 const options = {
   root: null,
   rootMargin: '0px',
@@ -40,9 +41,17 @@ title.forEach(t => {
   titobserver.observe(t)
 })
 
+// show hide showForm
+
+const showForm = () => {
+
+  const hidden = document.querySelector('#form')
+  hidden.classList.toggle('hidden')
+}
 
 
-body.onload(() => {
+
+window.addEventListener("load", () => {
   fetch(`https://cgm-tracker.herokuapp.com/`)
     .then(res => console.log('cgm woken up'))
 

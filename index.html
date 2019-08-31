@@ -17,7 +17,7 @@
       <div>
         <a href="#contact">contact</a>
         <a href="#bio">bio</a>
-        <a href="#archive" class="red">archive</a>
+        <a href="#archive" class="red">projects</a>
       </div>
     </nav>
     <h1>Matthew Lockdall</h1>
@@ -64,7 +64,7 @@
   <ul>
     <li>
       <h3 class="tit" data-delay=".1s">
-        <a href="https://cgm-tracker.herokuapp.com/">Personal CGM Tracker</a>
+        <a href="https://cgm-tracker.herokuapp.com/" target="_blank">Personal CGM Tracker</a>
       </h3>
       <a href="https://github.com/matloc13/dexcom_tracker_node" class="proLink">github repo</a>
       <p>An app to monitor my blood glucose values more easily. The app is constructed using Node.js, ejs, Sass, and MongoDb.</p>
@@ -74,7 +74,7 @@
         <a href="https://bgg-lister-client.herokuapp.com/" target="_blank">BGG-Lister</a>
       </h3>
       <a href="https://github.com/matloc13/bgg_lister_client" class="proLink">github repo</a>
-        <p>An App for creating lists on the fly using data from the BoardGameGeek api. the app is constructed using Reactjs, Sass, Ruby on Rails, and postgreSQL.</p>
+        <p>An App for creating lists on the fly using data from the BoardGameGeek api. The app is constructed using Reactjs, Sass, Ruby on Rails, and postgreSQL.</p>
     </li>
     <li>
       <h3 class="tit" data-delay=".4s">
@@ -108,10 +108,33 @@
         linkedin
       </a>
     </div>
+
     <div class="card anim" data-delay=".5s">
-      <a href="mailto:mlockdall26@gmail.com" target="_blank">
-        email
-      </a>
+
+      <a onclick="showForm()">contact</a>
+      <!-- <form onSubmit="submitForm()"id="form" class="form hidden ">
+
+        <fieldset>
+          <label for="firstName">first name</label>
+          <input type="text" id="firstName">
+          <label for="lastName">last name</label>
+          <input type="text" id="lastName">
+          <label for="email">email</label>
+          <input type="text" id="email">
+        </fieldset>
+
+        <fieldset>
+          <label for="message">leave a message</label>
+          <textarea name="message" rows="8" cols="80" id="message">
+          </textarea>
+            <input type="submit" value="say hello">
+        </fieldset>
+
+      </form> -->
+      <div id="form" class="form hidden">
+        <div>mlockdall26@gmail.com</div>
+        <a href="https://personal-inventory.herokuapp.com/">leave a message</a>
+      </div>
     </div>
   </div>
 </section>

@@ -6,6 +6,9 @@
 .tit {
   opacity: 0; }
 
+.hidden {
+  display: none; }
+
 body {
   text-align: center;
   background-color: #f4f6f9;
@@ -141,6 +144,13 @@ section {
     text-align: justify;
     grid-column: 1;
     display: block; }
+
+.form {
+  width: 100%;
+  text-align: left;
+  color: #16325c;
+  padding: 10%;
+  box-shadow: 0 0 #e0e5ee; }
 
 footer {
   color: #c23934;

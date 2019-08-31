@@ -5,15 +5,17 @@ $red: rgb(194, 57, 52);
 $lightblue: rgb(216, 237, 255);
 $lightgrey: rgb(224, 229, 238);
 $darkgrey: rgb(128, 143, 166);
-$darkblue: rgb(22, 50, 92); // * {
-//   border: 1px solid gold;
-// }
+$darkblue: rgb(22, 50, 92);
 
 .card,
 .skill,
 .table,
 .tit {
   opacity: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -205,6 +207,50 @@ section {
     grid-column: 1;
     display: block;
   }
+}
+
+.form {
+  width: 100%;
+  text-align: left;
+  // border: none;
+  color: $darkblue;
+  padding: 10%;
+  // grid-column: 1/4;
+  box-shadow: 0 0 $lightgrey;
+  //
+  // fieldset {
+  //   border: $lightgrey;
+  // }
+  //
+  // input[type=text] {
+  //   width: 95%;
+  //   padding: 2%;
+  //   border: none;
+  //   box-shadow: 0 1px darken($lightblue, 5%);
+  // }
+  //
+  // label {
+  //   width: 90%;
+  // }
+  //
+  // textarea {
+  //   width: 100%;
+  //   resize: vertical;
+  //   border: none;
+  // }
+  //
+  // input[type=submit] {
+  //   width: 100%;
+  //   padding: 1%;
+  //   font-size: 1.1em;
+  //   font-weight: 600;
+  //   font-family: 'Hind Madurai',sans-serif;
+  //   // background-color: $red;
+  //   color: $red;
+  //   border-radius: 20%;
+  //   border: none;
+  //   box-shadow: 0 0 2px $darkblue;
+  // }
 }
 
 footer {
