@@ -59,4 +59,7 @@ window.addEventListener("load", () => {
 
   fetch(`https://github.com/matloc13/touring-interurban`)
     .then(res => console.log('ti woken up'))
+
+  fetch('https://personal-inventory.herokuapp.com/')
+    .then(res => console.log('form woken up'))
 })
