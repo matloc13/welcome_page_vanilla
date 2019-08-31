@@ -1,7 +1,6 @@
 console.log(1 + 1);
 const cards = document.querySelectorAll('.anim')
 const title = document.querySelectorAll('.tit')
-const body = document.querySelector('body')
 
 const options = {
   root: null,
