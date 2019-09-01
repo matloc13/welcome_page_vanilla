@@ -29,6 +29,12 @@ header {
     position: absolute;
     width: 5%;
     bottom: 0; }
+  header h4 {
+    color: #f4f6f9;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 40px; }
   header nav {
     width: 100%;
     position: sticky;
@@ -70,6 +76,15 @@ section {
       text-decoration: none; }
     .bioDiv .head h3 {
       box-shadow: 0 1px #d25b57; }
+  .bioDiv .imgContainer {
+    background-image: url("../assets/profilepic.JPG");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 30%;
+    margin: 2% auto;
+    border-radius: 100%;
+    border: 8px solid #808fa6; }
   .bioDiv .article {
     width: 90%;
     padding: 2%;

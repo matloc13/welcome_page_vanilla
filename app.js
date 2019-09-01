@@ -57,7 +57,7 @@ window.addEventListener("load", () => {
   fetch(`https://bgg-lister-client.herokuapp.com/`)
     .then(res => console.log('bgg woken up'))
 
-  fetch(`https://github.com/matloc13/touring-interurban`)
+  fetch(`https://touring-interurban.herokuapp.com`)
     .then(res => console.log('ti woken up'))
 
   fetch('https://personal-inventory.herokuapp.com/')
