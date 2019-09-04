@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Federo|IM+Fell+DW+Pica&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Hind+Madurai:400,600&display=swap");
+.bioDiv .head a, .archive ul a, .contact .contactCardContainer .card a, footer a {
+  color: #c23934;
+  text-decoration: none; }
+
 .card,
 .skill,
 .table,
@@ -81,9 +85,6 @@ header {
   .bioDiv .head {
     padding: 2%;
     color: #16325c; }
-    .bioDiv .head a {
-      color: #c23934;
-      text-decoration: none; }
     .bioDiv .head h3 {
       box-shadow: 0 1px #d25b57; }
   .bioDiv .imgContainer {
@@ -153,7 +154,6 @@ header {
       margin: 3%;
       text-align: justify; }
     .archive ul a {
-      text-decoration: none;
       color: #16325c; }
   .archive .proLink {
     color: #c23934;
@@ -189,9 +189,6 @@ header {
       padding: 7%;
       height: 214px;
       margin: 0 1% 1%; }
-      .contact .contactCardContainer .card a {
-        color: #c23934;
-        text-decoration: none; }
       .contact .contactCardContainer .card .form {
         width: 100%;
         text-align: left;
@@ -221,9 +218,6 @@ footer {
   padding: 7%;
   display: flex;
   flex-flow: row-reverse; }
-  footer a {
-    color: #c23934;
-    text-decoration: none; }
 
 @keyframes anim1 {
   from {

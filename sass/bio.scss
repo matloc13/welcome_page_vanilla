@@ -13,8 +13,7 @@
     color: $darkblue;
 
     a {
-      color: $red;
-      text-decoration: none;
+      @extend %a-link;
     }
 
     h3 {

@@ -6,7 +6,6 @@ footer {
   flex-flow: row-reverse;
 
   a {
-    color: $red;
-    text-decoration: none;
+    @extend %a-link;
   }
 }
