@@ -88,7 +88,7 @@ header {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 55%;
+    width: 35%;
     height: 90%;
     margin: -129px 50px;
     border: 8px solid #e0e5ee;
@@ -123,6 +123,8 @@ header {
     width: 100%; }
     .bioDiv .head h3 {
       grid-column: 1/3; }
+  .bioDiv .imgContainer {
+    width: 55%; }
   .bioDiv .article {
     grid-column: 1/3; }
   .bioDiv h2 {
