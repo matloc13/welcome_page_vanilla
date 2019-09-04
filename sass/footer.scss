@@ -1,0 +1,12 @@
+footer {
+  color: $red;
+  background-color: $darkblue;
+  padding: 7%;
+  display: flex;
+  flex-flow: row-reverse;
+
+  a {
+    color: $red;
+    text-decoration: none;
+  }
+}

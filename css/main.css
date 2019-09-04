@@ -15,6 +15,9 @@ body {
   font-family: 'Hind Madurai', sans-serif;
   margin: 0; }
 
+section {
+  height: 100vh; }
+
 header {
   width: 100%;
   height: 100vh;
@@ -55,9 +58,14 @@ header {
       header nav div .red {
         color: #c23934; }
 
-section {
-  height: 100vh; }
-
+@media (max-width: 415px) {
+  nav {
+    display: transparent;
+    z-index: 0; }
+    nav .navLinks {
+      display: none; }
+      nav .navLinks a {
+        display: none; } }
 .bioDiv {
   text-align: justify;
   width: 100%;
@@ -80,7 +88,7 @@ section {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 35%;
+    width: 55%;
     height: 90%;
     margin: -129px 50px;
     border: 8px solid #e0e5ee;
@@ -110,30 +118,17 @@ section {
       .bioDiv .table td:hover {
         color: #c23934; }
 
-.contact {
-  padding: 1%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
-  background-image: url("../assets/grid.jpg"); }
-  .contact .title {
-    grid-column: 2/4;
-    text-align: right;
-    color: #16325c; }
-  .contact .contactCardContainer {
-    width: 100%;
-    grid-column: 1/4;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .contact .contactCardContainer .card {
-      background-image: linear-gradient(#f4f6f9, #d8edff);
-      padding: 7%;
-      height: 214px;
-      margin: 0 1% 1%; }
-      .contact .contactCardContainer .card a {
-        color: #c23934;
-        text-decoration: none; }
-
+@media (max-width: 415px) {
+  .bioDiv .head {
+    width: 100%; }
+    .bioDiv .head h3 {
+      grid-column: 1/3; }
+  .bioDiv .article {
+    grid-column: 1/3; }
+  .bioDiv h2 {
+    grid-column: 1/3; }
+  .bioDiv .table {
+    grid-column: 1/3; } }
 .archive {
   width: 100%;
   background-image: linear-gradient(#d8edff, #e0e5ee);
@@ -162,13 +157,59 @@ section {
     grid-column: 1;
     display: block; }
 
-.form {
-  width: 100%;
-  text-align: left;
-  color: #16325c;
-  padding: 10%;
-  box-shadow: 0 0 #e0e5ee; }
+@media (max-width: 415px) {
+  .archive {
+    padding: 5% 1%; }
+    .archive ul {
+      grid-column: 1/4;
+      margin: 0 auto;
+      padding: 2%; } }
+.contact {
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  background-image: url("../assets/grid.jpg"); }
+  .contact .title {
+    grid-column: 2/4;
+    text-align: right;
+    color: #16325c; }
+  .contact .contactCardContainer {
+    width: 100%;
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .contact .contactCardContainer .card {
+      background-image: linear-gradient(#f4f6f9, #d8edff);
+      padding: 7%;
+      height: 214px;
+      margin: 0 1% 1%; }
+      .contact .contactCardContainer .card a {
+        color: #c23934;
+        text-decoration: none; }
+      .contact .contactCardContainer .card .form {
+        width: 100%;
+        text-align: left;
+        color: #16325c;
+        padding: 10%; }
 
+@media (max-width: 415px) {
+  .contact {
+    padding: 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    background-image: url("../assets/grid.jpg"); }
+    .contact .contactCardContainer {
+      width: 100%;
+      grid-column: 1/4;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+      .contact .contactCardContainer .card {
+        background-image: linear-gradient(#f4f6f9, #d8edff);
+        padding: 7%;
+        height: 94px;
+        margin: 0 1% 2%; } }
 footer {
   color: #c23934;
   background-color: #16325c;
@@ -193,5 +234,18 @@ footer {
   to {
     transform: translateX(0);
     opacity: 1; } }
+@media (max-width: 415px) {
+  @keyframes anim1 {
+    from {
+      transform: translateY(-300px);
+      opacity: 0; }
+    to {
+      transform: translateY(0);
+      opacity: 1; } }
+  @keyframes anim2 {
+    from {
+      opacity: 0; }
+    to {
+      opacity: 1; } } }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,69 @@
+header {
+  width: 100%;
+  height: 100vh;
+  background-color: $darkblue;
+  background-image: url("../assets/grid.jpg");
+  position: relative;
+
+  h1 {
+    color: $darkblue;
+    text-align: left;
+    font-family: 'Federo', sans-serif;
+    margin: 7% 11%;
+  }
+
+  .greyBar {
+    background-color: $darkblue;
+    width: 100%;
+    height: 35%;
+    position: absolute;
+    bottom: 0;
+
+    h1 {
+      color: $white;
+    }
+  }
+
+  nav {
+    width: 100%;
+    position: sticky;
+    top: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 2;
+
+    div {
+      grid-column: 2/4;
+      display: flex;
+      flex-direction: row-reverse;
+      // background-color: $lightblue;
+      background-image: linear-gradient(to right, transparent 25%,$lightblue 99%);
+      width: 100%;
+
+      a {
+        padding: 1% 2%;
+        margin: 0 1%;
+        color: $darkgrey;
+        text-decoration: none;
+      }
+
+      .red {
+        color: $red;
+      }
+    }
+  }
+}
+@media (max-width: 415px) {
+  nav {
+    display: transparent;
+    z-index: 0;
+
+    .navLinks {
+      display: none;
+
+      a {
+        display: none;
+      }
+    }
+  }
+}

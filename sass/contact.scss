@@ -1,0 +1,62 @@
+.contact {
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  background-image: url("../assets/grid.jpg");
+
+  .title {
+    grid-column: 2/4;
+    text-align: right;
+    color: $darkblue;
+  }
+
+  .contactCardContainer {
+    width: 100%;
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    .card {
+      background-image: linear-gradient($white, $lightblue);
+      padding: 7%;
+      height: 214px;
+      margin: 0 1% 1%;
+
+      a {
+        color: $red;
+        text-decoration: none;
+      }
+
+      .form {
+        width: 100%;
+        text-align: left;
+        color: $darkblue;
+        padding: 10%;
+      }
+    }
+  }
+}
+@media (max-width: 415px) {
+  .contact {
+    padding: 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    background-image: url("../assets/grid.jpg");
+
+    .contactCardContainer {
+      width: 100%;
+      grid-column: 1/4;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+      .card {
+        background-image: linear-gradient($white, $lightblue);
+        padding: 7%;
+        height: 94px;
+        margin: 0 1% 2%;
+      }
+    }
+  }
+}

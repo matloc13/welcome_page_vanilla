@@ -1,0 +1,52 @@
+.archive {
+  width: 100%;
+  // background-color: $lightgrey;
+  background-image: linear-gradient($lightblue, $lightgrey);
+  padding: 10% 3%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  h3 {
+    text-align: right;
+    box-shadow: 0 1px $red;
+  }
+
+  ul {
+    grid-column: 1/3;
+
+    li {
+      list-style: none;
+    }
+
+    p {
+      font-weight: lighter;
+      margin: 3%;
+      text-align: justify;
+    }
+
+    a {
+      text-decoration: none;
+      color: $darkblue;
+    }
+  }
+
+  .proLink {
+    color: $red;
+    margin: 0;
+    text-align: justify;
+    grid-column: 1;
+    display: block;
+  }
+}
+@media (max-width: 415px) {
+  .archive {
+    padding: 5% 1%;
+
+    ul {
+      grid-column: 1/4;
+      margin: 0 auto;
+      padding: 2%;
+    }
+  }
+}

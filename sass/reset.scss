@@ -1,0 +1,21 @@
+.card,
+.skill,
+.table,
+.tit {
+  opacity: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+  text-align: center;
+  background-color: $white;
+  font-family: 'Hind Madurai', sans-serif;
+  margin: 0;
+}
+
+section {
+  height: 100vh;
+}
