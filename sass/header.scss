@@ -52,6 +52,19 @@ header {
     }
   }
 }
+@media (max-width: 890px) {
+  nav {
+    display: none;
+
+    .navLinks {
+      display: none;
+
+      a {
+        display: none;
+      }
+    }
+  }
+}
 @media (max-width: 415px) {
   nav {
     display: transparent;

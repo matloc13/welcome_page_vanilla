@@ -36,6 +36,29 @@
     }
   }
 }
+@media (max-width: 510px) {
+  .contact {
+    padding: 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    background-image: url("../assets/grid.jpg");
+
+    .contactCardContainer {
+      width: 100%;
+      grid-column: 1/4;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+      .card {
+        background-image: linear-gradient($white, $lightblue);
+        padding: 7%;
+        height: 94px;
+        margin: 0 1% 2%;
+      }
+    }
+  }
+}
 @media (max-width: 415px) {
   .contact {
     padding: 1%;
