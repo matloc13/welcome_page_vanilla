@@ -32,6 +32,8 @@ header {
   height: 100vh;
   background-color: #16325c;
   background-image: url("../assets/grid.jpg");
+  background-position: center;
+  background-size: contain;
   position: relative; }
   header h1 {
     color: #16325c;
@@ -206,7 +208,9 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
-  background-image: url("../assets/grid.jpg"); }
+  background-image: url("../assets/grid.jpg");
+  background-position: center;
+  background-size: contain; }
   .contact .title {
     grid-column: 2/4;
     text-align: right;

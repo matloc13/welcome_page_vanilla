@@ -4,6 +4,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
   background-image: url("../assets/grid.jpg");
+  background-position: center;
+  background-size: contain;
 
   .title {
     grid-column: 2/4;

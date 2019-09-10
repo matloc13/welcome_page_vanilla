@@ -3,6 +3,9 @@ header {
   height: 100vh;
   background-color: $darkblue;
   background-image: url("../assets/grid.jpg");
+  // background-image: url("../assets/IMG_5645.JPG");
+  background-position: center;
+  background-size: contain;
   position: relative;
 
   h1 {
