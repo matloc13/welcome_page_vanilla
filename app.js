@@ -1,4 +1,4 @@
-console.log(1 + 1);
+console.log(2 + 2);
 const cards = document.querySelectorAll('.anim')
 const title = document.querySelectorAll('.tit')
 

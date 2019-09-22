@@ -27,11 +27,14 @@ section {
 @media (max-width: 415px) {
   section {
     height: 110%; } }
+.grid {
+  grid-template-columns: repeat(10px, 1fr);
+  box-shadow: black; }
+
 header {
   width: 100%;
   height: 100vh;
-  background-color: #16325c;
-  background-image: url("../assets/grid.jpg");
+  background-image: url("../assets/maxgrid.png");
   background-position: center;
   background-size: contain;
   position: relative; }
@@ -208,7 +211,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
-  background-image: url("../assets/grid.jpg");
+  background-image: url("../assets/maxgrid.png");
   background-position: center;
   background-size: contain; }
   .contact .title {
@@ -237,7 +240,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
-    background-image: url("../assets/grid.jpg"); }
+    background-image: url("../assets/maxgrid.png"); }
     .contact .contactCardContainer {
       width: 100%;
       grid-column: 1/4;
@@ -254,7 +257,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
-    background-image: url("../assets/grid.jpg"); }
+    background-image: url("../assets/maxgrid.png"); }
     .contact .contactCardContainer {
       width: 100%;
       grid-column: 1/4;
