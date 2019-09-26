@@ -273,14 +273,14 @@ footer {
 
 @keyframes anim1 {
   from {
-    transform: translateY(-300px);
+    transform: translateY(100px);
     opacity: 0; }
   to {
     transform: translateY(0);
     opacity: 1; } }
 @keyframes anim2 {
   from {
-    transform: translateX(-550px);
+    transform: translateX(-250px);
     opacity: 0; }
   to {
     transform: translateX(0);
@@ -294,7 +294,7 @@ footer {
 @media (max-width: 415px) {
   @keyframes anim1 {
     from {
-      transform: translateY(-300px);
+      transform: translateY(-100px);
       opacity: 0; }
     to {
       transform: translateY(0);
