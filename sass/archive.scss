@@ -38,20 +38,22 @@
     display: block;
   }
 }
+
 @media (max-width: 523px) {
   .archive {
     padding: 5% 1%;
 
     ul {
       grid-column: 1/4;
-      margin: 0 auto;
       padding: 2%;
     }
   }
 }
+
 @media (max-width: 415px) {
   .archive {
     padding: 5% 1%;
+    margin: 0 2%;
 
     ul {
       grid-column: 1/4;

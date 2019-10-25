@@ -19,9 +19,13 @@ body {
 section {
   height: 100vh;
 }
+
 @media (max-width: 510px) {
-  section: 120%;
+  section {
+    height: 120%;
+  }
 }
+
 @media (max-width: 415px) {
   section {
     height: 110%;

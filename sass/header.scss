@@ -37,7 +37,7 @@ header {
       grid-column: 2/4;
       display: flex;
       flex-direction: row-reverse;
-      background-image: linear-gradient(to right, transparent 25%,$lightblue 99%);
+      background-image: linear-gradient(to right, transparent 25%, $lightblue 99%);
       width: 100%;
 
       a {
@@ -53,6 +53,7 @@ header {
     }
   }
 }
+
 @media (max-width: 890px) {
   nav {
     display: none;
@@ -66,10 +67,11 @@ header {
     }
   }
 }
+
 @media (max-width: 415px) {
   nav {
-    display: transparent;
-    z-index: 0;
+    display: none;
+    // z-index: 0;
 
     .navLinks {
       display: none;

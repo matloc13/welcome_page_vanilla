@@ -23,7 +23,8 @@ section {
   height: 100vh; }
 
 @media (max-width: 510px) {
-  section: 120%; }
+  section {
+    height: 120%; } }
 @media (max-width: 415px) {
   section {
     height: 110%; } }
@@ -77,8 +78,7 @@ header {
         display: none; } }
 @media (max-width: 415px) {
   nav {
-    display: transparent;
-    z-index: 0; }
+    display: none; }
     nav .navLinks {
       display: none; }
       nav .navLinks a {
@@ -193,11 +193,11 @@ header {
     padding: 5% 1%; }
     .archive ul {
       grid-column: 1/4;
-      margin: 0 auto;
       padding: 2%; } }
 @media (max-width: 415px) {
   .archive {
-    padding: 5% 1%; }
+    padding: 5% 1%;
+    margin: 0 2%; }
     .archive ul {
       grid-column: 1/4;
       margin: 0 auto;
