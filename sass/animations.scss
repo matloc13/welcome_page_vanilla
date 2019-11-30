@@ -9,6 +9,7 @@
     opacity: 1;
   }
 }
+
 @keyframes anim2 {
   from {
     transform: translateX(-250px);
@@ -20,6 +21,11 @@
     opacity: 1;
   }
 }
+
+@keyframes anim3 {
+  // transition: backgrou
+}
+
 @media (max-width: 760px) {
   @keyframes anim2 {
     from {
@@ -31,6 +37,7 @@
     }
   }
 }
+
 @media (max-width: 415px) {
   @keyframes anim1 {
     from {
@@ -43,6 +50,7 @@
       opacity: 1;
     }
   }
+
   @keyframes anim2 {
     from {
       opacity: 0;

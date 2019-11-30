@@ -1,6 +1,7 @@
 console.log(2 + 2);
 const cards = document.querySelectorAll('.anim')
 const title = document.querySelectorAll('.tit')
+const background = document.querySelector('#archive')
 
 const options = {
   root: null,
@@ -8,7 +9,7 @@ const options = {
   threshold: .8
 }
 
-const observer = new IntersectionObserver((entries, options) => {
+const cardObserver = new IntersectionObserver((entries, options) => {
   console.log(entries)
   entries.forEach((rep) => {
     if (rep.intersectionRatio > 0) {
@@ -21,7 +22,7 @@ const observer = new IntersectionObserver((entries, options) => {
 
 })
 
-const titobserver = new IntersectionObserver((entries, options) => {
+const titleObserver = new IntersectionObserver((entries, options) => {
   entries.forEach(rep => {
     if (rep.intersectionRatio > 0) {
       rep.target.style.animation = `anim2 1s ${rep.target.dataset.delay} forwards ease-in`
@@ -31,14 +32,25 @@ const titobserver = new IntersectionObserver((entries, options) => {
   })
 })
 
+const backgroundObserver = new IntersectionObserver((entries, options) => {
+  entries.forEach(rep => {
+    if (rep.isIntersecting === true) {
+      rep.target.style.animation = `anim3 10s ${rep.target.dataset.delay} ease-in`
+    } else {
+      rep.target.style.animation = 'none'
+    }
+  })
+})
 
 
 cards.forEach(c => {
-  observer.observe(c)
+  cardObserver.observe(c)
 })
 title.forEach(t => {
-  titobserver.observe(t)
+  titleObserver.observe(t)
 })
+
+
 
 // show hide showForm
 
@@ -51,15 +63,24 @@ const showForm = () => {
 
 
 window.addEventListener("load", () => {
-  fetch(`https://cgm-tracker.herokuapp.com/`)
-    .then(res => console.log('cgm woken up'))
+  const cgm = fetch(`https://cgm-tracker.herokuapp.com/`)
+    // .then(console.log('cgm woken up'))
 
-  fetch(`https://bgg-lister-client.herokuapp.com/`)
-    .then(res => console.log('bgg woken up'))
+  const bgg = fetch(`https://bgg-lister-client.herokuapp.com/`)
+    // .then( console.log('bgg woken up'))
 
-  fetch(`https://touring-interurban.herokuapp.com`)
-    .then(res => console.log('ti woken up'))
+  const touring = fetch(`https://touring-interurban.herokuapp.com`)
+    // .then( console.log('ti woken up'))
 
-  fetch('https://personal-inventory.herokuapp.com/')
-    .then(res => console.log('form woken up'))
-})
+  const pi = fetch('https://personal-inventory.herokuapp.com/')
+    // .then( console.log('form woken up'))
+  return Promise.all([
+  cgm,
+  bgg, 
+  touring,
+  pi
+  ]).then(res =>  res.forEach((ele, i) => {
+    console.log( `${i + 1}: ${ele.status}`);
+   
+  })
+)})
