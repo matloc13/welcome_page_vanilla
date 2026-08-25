@@ -12,14 +12,14 @@
 </head>
 
 <body>
-    <div class="container">
+    <main class="container">
 
         <header>
             <nav>
                 <div class="navLinks">
                     <a href="#contact">contact</a>
                     <a href="#bio">bio</a>
-                    <a href="#archive" class="red">projects</a>
+                    <!-- <a href="#archive" class="red">projects</a> -->
                 </div>
             </nav>
             <h1>Matthew Lockdall</h1>
@@ -63,8 +63,15 @@ Interested in how all the pieces fit together, from data shape to delivery pipel
                 </dl>
             </div>
         </section>
+        <nav class="section-nav section-nav--left">
+            <div class="navLinks">
+                <a href="#bio">bio</a>
+                <a href="#contact">contact</a>
+            </div>
+        </nav>
 
         <section class="archive" id="archive">
+            <canvas class="rain-canvas"></canvas>
             <ul>
                 <!-- <li>
                     <h3 class="tit" data-delay=".1s">
@@ -117,44 +124,44 @@ Interested in how all the pieces fit together, from data shape to delivery pipel
                 </li> -->
             </ul>
         </section>
+        <section id="maps">
+            <canvas class="maps-canvas"></canvas>
+        </section>
 
-        <section class="contact" id="contact">
+
+        <section class="contact">
             <h2 class="title">
                 If you like to find out more, feel free to connect with me on social media.
             </h2>
-            <div class="contactCardContainer">
-                <div class="card anim" data-delay=".1s">
-                    <a href="https://github.com/matloc13" target="_blank">
-                        github
-                    </a>
-                </div>
-                <div class="card anim" data-delay=".3s">
-                    <a href="https://www.linkedin.com/in/matthew-lockdall/" target="_blank">
-                        linkedin
-                    </a>
-                </div>
-
-                <div class="card anim" data-delay=".5s">
-
-                    <a onclick="showForm()">contact</a>
-
-                    <div id="form" class="form hidden">
-                        <!-- <div> mlockdall26@gmailcom</div> -->
-                        <div>
-                            <figure>mlockdall26@gmail<span>.com</span></figure>
-                        </div>
-                        <a href="#" target="_blank">leave a message</a>
-                    </div>
-                </div>
-                <div></div>
-            </div>
         </section>
 
-        <footer class="footer">
-            <a href="#bio">matthew lockdall</a>
-        </footer>
+        <div class="bottom-dock">
+            <article class="contact-panel hidden" id="contactPanel">
+                <div class="contactCardContainer">
+                    <div class="card" data-delay=".1s">
+                        <a href="https://github.com/matloc13" target="_blank">github</a>
+                    </div>
+                    <div class="card" data-delay=".3s">
+                        <a href="https://www.linkedin.com/in/matthew-lockdall/" target="_blank">linkedin</a>
+                    </div>
+                    <div class="card" data-delay=".5s">
+                        <a onclick="showForm()">contact</a>
+                        <div id="form" class="form hidden">
+                            <div>
+                                <figure>mlockdall26@gmail<span>.com</span></figure>
+                            </div>
+                            <a href="#" target="_blank">leave a message</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
-    </div>
+            <footer class="footer">
+                <a onclick="toggleContact()">matthew lockdall</a>
+            </footer>
+        </div>
+
+    </main>
     <script src="app.js" charset="utf-8"></script>
 </body>
 

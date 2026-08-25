@@ -46,3 +46,8 @@ On `window.load`, the script fires warm-up fetches to Heroku-hosted portfolio pr
 ## Deployment
 
 Hosted on GitHub Pages. The `CNAME` file maps the custom domain. Pushing to `master` deploys the site.
+
+
+## Run Locally 
+
+CLI: python3 -m http.server 8080 --directory /Users/mattlockdall/Documents/pdev/welcome_page_vanilla

@@ -7,5 +7,30 @@ footer {
 
   a {
     @extend %a-link;
+    cursor: pointer;
+  }
+}
+
+.bottom-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.contact-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 1000px;
+  transition: max-height 0.5s ease-in-out;
+
+  &.hidden {
+    max-height: 0;
+
+    .card {
+      opacity: 0;
+    }
   }
 }
