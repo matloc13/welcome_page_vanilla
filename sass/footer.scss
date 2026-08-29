@@ -1,18 +1,4 @@
 footer {
-  color: $red;
-  background-color: $darkblue;
-  padding: 5%;
-  display: flex;
-  flex-flow: row-reverse;
-  font-size: 24px;
-
-  a {
-    @extend %a-link;
-    cursor: pointer;
-  }
-}
-
-.bottom-dock {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -20,35 +6,68 @@ footer {
   z-index: 100;
   transform: translateY(100%);
   transition: transform 0.3s ease-in-out;
+  color: $red;
+  background-color: $darkbrown;
+  padding: 3% 5%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 5%;
+  font-size: 24px;
 
   &.visible {
     transform: translateY(0);
   }
+
+  .footer-name {
+    margin: 0;
+    color: $red;
+    white-space: nowrap;
+  }
 }
 
-.contact-panel {
+.contactCardContainer {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 50%;
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  max-height: 1000px;
-  transition: max-height 0.5s ease-in-out;
-  text-align: right;
-  padding: 2% 5%;
+  flex-direction: row;
   align-items: flex-end;
 
   .card {
-    // background: linear-gradient($white 0%, $lightblue 100%);
-    box-shadow: 0 6px 18px $lightblue  inset;
-    align-self: flex-end;
-    padding: 3px 0;
-  }
+    padding: 1%;
+    min-height: 50px;
+    margin: 0 0 2px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    opacity: 1;
 
+    a {
+      @extend %a-link;
+      padding: 1% 12%;
+      grid-column: 2;
+    }
 
-  &.hidden {
-    max-height: 0;
+    .contact-trigger {
+      @extend %a-link;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font: inherit;
+      padding: 1% 0;
+      grid-column: 2;
+      text-align: right;
+    }
 
-    .card {
-      opacity: 0;
+    .form {
+      width: 100%;
+      text-align: right;
+      font-size: .5em;
+      grid-column: 2;
+      grid-row: 2;
+      place-content: center;
     }
   }
 }

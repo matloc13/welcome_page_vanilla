@@ -1,17 +1,40 @@
-.scroll-line {
-  width: 100%;
-  height: 60px;
-  display: block;
+.scroll-arrows {
+  position: fixed;
+  right: 1rem;
+  bottom: 2rem;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
 
-  &__path {
-    stroke: $darkblue;
-    stroke-dashoffset: 1800;
-    stroke-dasharray: 1800;
-    transition: stroke-dashoffset 1.4s ease-out;
+.scroll-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
 
-    &.drawn {
-      stroke-dashoffset: 0;
-    }
+  &::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 5px;
+    border-right: 2px solid $lightbrown;
+    border-bottom: 2px solid $lightbrown;
+  }
+
+  &--up::before { transform: rotate(-135deg); }
+  &--down::before { transform: rotate(45deg); }
+
+  &.active { opacity: 1; }
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 

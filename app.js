@@ -1,28 +1,39 @@
 
-const cards = document.querySelectorAll('.anim')
-const title = document.querySelectorAll('.tit')
-const background = document.querySelector('#archive')
+// ── theme ────────────────────────────────────────────────────────────
+const html = document.documentElement
+const themeBtns = document.querySelectorAll('.theme-btn')
 
-const options = {
-  root: null,
-  rootMargin: '0px',
-  threshold: .8
+function applyTheme(theme) {
+  html.dataset.theme = theme
+  localStorage.setItem('theme', theme)
+  const label = theme === 'dark' ? 'light' : 'dark'
+  themeBtns.forEach(btn => { btn.textContent = label })
+  const dropColor = theme === 'dark' ? '18,26,40' : '216,237,255'
+  document.querySelectorAll('.rain-canvas').forEach(c => { c.dataset.baseColor = dropColor })
 }
 
-const cardObserver = new IntersectionObserver((entries, options) => {
-  console.log(entries)
+const savedTheme = localStorage.getItem('theme') ||
+  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+applyTheme(savedTheme)
+
+themeBtns.forEach(btn => btn.addEventListener('click', () => {
+  applyTheme(html.dataset.theme === 'dark' ? 'light' : 'dark')
+}))
+
+const cards = document.querySelectorAll('.anim')
+const title = document.querySelectorAll('.tit')
+
+const cardObserver = new IntersectionObserver((entries) => {
   entries.forEach((rep) => {
     if (rep.intersectionRatio > 0) {
       rep.target.style.animation = `anim1 2s ${rep.target.dataset.delay} forwards ease-out`
-      console.log('going');
     } else {
       rep.target.style.animation = 'none'
     }
   })
-
 })
 
-const titleObserver = new IntersectionObserver((entries, options) => {
+const titleObserver = new IntersectionObserver((entries) => {
   entries.forEach(rep => {
     if (rep.intersectionRatio > 0) {
       rep.target.style.animation = `anim2 1s ${rep.target.dataset.delay} forwards ease-in`
@@ -32,23 +43,8 @@ const titleObserver = new IntersectionObserver((entries, options) => {
   })
 })
 
-const backgroundObserver = new IntersectionObserver((entries, options) => {
-  entries.forEach(rep => {
-    if (rep.isIntersecting === true) {
-      rep.target.style.animation = `anim3 10s ${rep.target.dataset.delay} ease-in`
-    } else {
-      rep.target.style.animation = 'none'
-    }
-  })
-})
-
-
-cards.forEach(c => {
-  cardObserver.observe(c)
-})
-title.forEach(t => {
-  titleObserver.observe(t)
-})
+cards.forEach(c => cardObserver.observe(c))
+title.forEach(t => titleObserver.observe(t))
 
 // dd rise → slide right → float up
 const dl = document.querySelector('dl.table');
@@ -84,7 +80,6 @@ ddObserver.observe(dl)
 function initRainCanvas(rainCanvas) {
   const ctx = rainCanvas.getContext('2d')
   const shadowColor = rainCanvas.dataset.shadow || 'rgba(22, 33, 48,0.1)'
-  const baseColor = rainCanvas.dataset.baseColor || '244,246,249'
   let drops = []
   let rafId = null
   let lastScroll = Date.now()
@@ -93,8 +88,9 @@ function initRainCanvas(rainCanvas) {
   window.addEventListener('scroll', () => { lastScroll = Date.now() })
 
   function initDrops() {
-    rainCanvas.width = rainCanvas.offsetWidth
-    rainCanvas.height = rainCanvas.offsetHeight
+    const parent = rainCanvas.parentElement
+    rainCanvas.width = rainCanvas.offsetWidth || parent.offsetWidth
+    rainCanvas.height = rainCanvas.offsetHeight || parent.offsetHeight
     startTime = Date.now()
     drops = Array.from({ length: 90 }, () => ({
       x: Math.random() * rainCanvas.width,
@@ -110,6 +106,7 @@ function initRainCanvas(rainCanvas) {
     const ramp = 0.04 + 0.96 * Math.min(1, elapsed / 18)  // crawls at 4%, full speed at 18s
     const idleSeconds = (Date.now() - lastScroll) / 1000
     const multiplier = ramp * (1 + Math.min(idleSeconds * 0.6, 5))
+    const baseColor = rainCanvas.dataset.baseColor || '216,237,255'
     ctx.clearRect(0, 0, rainCanvas.width, rainCanvas.height)
     ctx.shadowColor = shadowColor
     ctx.shadowBlur = 20
@@ -126,9 +123,10 @@ function initRainCanvas(rainCanvas) {
       ctx.fillStyle = 'rgba(255,255,255,0.88)'
       ctx.fill()
       ctx.shadowBlur = 20
-      d.y += d.speed * multiplier
-      if (d.y > rainCanvas.height + d.r) {
-        d.y = -d.r
+      d.x += Math.sin(d.y * 0.04) * 0.4
+      d.y -= d.speed * multiplier
+      if (d.y < -d.r) {
+        d.y = rainCanvas.height + d.r
         d.x = Math.random() * rainCanvas.width
       }
     })
@@ -152,28 +150,10 @@ function initRainCanvas(rainCanvas) {
 
 document.querySelectorAll('.rain-canvas').forEach(initRainCanvas)
 
-// footer visible only while contact section is in view
-const bottomDock = document.querySelector('.bottom-dock')
-const contactSection = document.querySelector('#contact')
-
-if (bottomDock && contactSection) {
-  const footerVisibilityObserver = new IntersectionObserver((entries) => {
-    entries.forEach(rep => {
-      if (rep.isIntersecting) {
-        bottomDock.classList.add('visible')
-      } else {
-        bottomDock.classList.remove('visible')
-        const panel = document.querySelector('#contactPanel')
-        if (panel && !panel.classList.contains('hidden')) {
-          panel.classList.add('hidden')
-          panel.querySelectorAll('.card').forEach(card => { card.style.animation = 'none' })
-        }
-      }
-    })
-  }, { threshold: 0.1 })
-
-  footerVisibilityObserver.observe(contactSection)
-}
+// header canvas needs layout to be settled before offsetWidth/Height are non-zero
+window.addEventListener('load', () => {
+  document.querySelectorAll('.header-rain-canvas').forEach(initRainCanvas)
+})
 
 // contact title — scroll-driven left sweep capped so full string stays on screen
 const contactTitle = document.querySelector('.title')
@@ -187,24 +167,6 @@ if (contactTitle) {
   }, { passive: true })
 }
 
-// scroll line draw
-const linePath = document.querySelector('.scroll-line__path')
-if (linePath) {
-  const lineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(rep => {
-      if (rep.isIntersecting) {
-        const len = linePath.getTotalLength()
-        linePath.style.strokeDasharray = len
-        linePath.style.strokeDashoffset = len
-        linePath.getBoundingClientRect()
-        linePath.classList.add('drawn')
-      } else {
-        linePath.classList.remove('drawn')
-      }
-    })
-  }, { threshold: 0.2 })
-  lineObserver.observe(document.querySelector('.scroll-line'))
-}
 
 // maps section — scroll-driven node animation with RAF-based splash
 const mapsWrapper = document.querySelector('.maps-wrapper')
@@ -242,10 +204,17 @@ if (mapsWrapper) {
       : Math.max(0, Math.min(1, (segProgress - fadeStart) / fadeWindow))
   }
 
+  function mapColors() {
+    return html.dataset.theme === 'dark'
+      ? { line: 'rgba(100,130,220,0.6)', node: 'rgba(180,205,255,0.9)', label: 'rgba(180,205,255,0.8)', ring: [100,130,220] }
+      : { line: 'rgba(31,20,189,0.5)',   node: 'rgba(31,20,89,0.9)',    label: 'rgba(31,20,89,0.8)',    ring: [31,20,189] }
+  }
+
   function drawMaps() {
     const progress = mapsProgress
     const completedSegments = Math.floor(progress)
     const segFraction = progress % 1
+    const c = mapColors()
 
     nodes.forEach(n => {
       if (n.splashPhase >= 0 && n.splashPhase < 1) n.splashPhase = Math.min(1, n.splashPhase + 0.028)
@@ -253,7 +222,7 @@ if (mapsWrapper) {
 
     ctx2.clearRect(0, 0, mapsCanvas.width, mapsCanvas.height)
 
-    ctx2.strokeStyle = 'rgba(31, 20, 189,0.5)'
+    ctx2.strokeStyle = c.line
     ctx2.lineWidth = 3
     for (let i = 0; i < completedSegments && i < nodes.length - 1; i++) {
       ctx2.beginPath()
@@ -280,11 +249,11 @@ if (mapsWrapper) {
       // expanding splash ring
       if (n.splashPhase >= 0) {
         const sp = n.splashPhase
+        const [r, g, b] = c.ring
         ctx2.beginPath()
         ctx2.arc(n.x, n.y, NODE_RADIUS + NODE_RADIUS * 3.5 * sp, 0, Math.PI * 2)
-        ctx2.strokeStyle = `rgba(31, 20, 189, ${(1 - sp) * 0.5})`
+        ctx2.strokeStyle = `rgba(${r},${g},${b},${(1 - sp) * 0.5})`
         ctx2.lineWidth = 1.5
-
         ctx2.stroke()
       }
 
@@ -298,10 +267,10 @@ if (mapsWrapper) {
       ctx2.scale(scale, scale)
       ctx2.beginPath()
       ctx2.arc(0, 0, NODE_RADIUS, 0, Math.PI * 2)
-      ctx2.fillStyle = 'rgba(31, 20, 89,0.9)'
+      ctx2.fillStyle = c.node
       ctx2.fill()
       ctx2.font = '18px Hind Madurai, sans-serif'
-      ctx2.fillStyle = 'rgba(31, 20, 89,0.8)'
+      ctx2.fillStyle = c.label
       ctx2.textAlign = 'center'
       ctx2.fillText(n.label, 0, NODE_RADIUS + 16)
       ctx2.restore()
@@ -335,50 +304,43 @@ if (mapsWrapper) {
   mapsObserver.observe(mapsWrapper)
 }
 
+// scroll arrows — up hides at top, down hides at bottom
+const arrowUp = document.querySelector('.scroll-arrow--up')
+const arrowDown = document.querySelector('.scroll-arrow--down')
+
+function updateScrollArrows() {
+  const atTop = window.scrollY <= 0
+  const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2
+  if (arrowUp) arrowUp.classList.toggle('hidden', atTop)
+  if (arrowDown) arrowDown.classList.toggle('hidden', atBottom)
+}
+
+if (arrowUp || arrowDown) {
+  window.addEventListener('scroll', updateScrollArrows, { passive: true })
+  updateScrollArrows()
+  arrowUp?.addEventListener('click', () => window.scrollBy({ top: -window.innerHeight * 0.8, behavior: 'smooth' }))
+  arrowDown?.addEventListener('click', () => window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' }))
+}
+
+// footer visible only while contact section is in view
+const siteFooter = document.querySelector('footer')
+const contactSection = document.querySelector('#contact')
+
+if (siteFooter && contactSection) {
+  const footerVisibilityObserver = new IntersectionObserver((entries) => {
+    entries.forEach(rep => {
+      siteFooter.classList.toggle('visible', rep.isIntersecting)
+    })
+  }, { threshold: 0.1 })
+
+  footerVisibilityObserver.observe(contactSection)
+}
+
 // show hide showForm
 
 function showForm() {
-  const hidden = document.querySelector('#form')
-  hidden.classList.toggle('hidden')
+  const form = document.querySelector('#form')
+  const trigger = document.querySelector('.contact-trigger')
+  form.classList.toggle('hidden')
+  if (trigger) trigger.setAttribute('aria-expanded', String(!form.classList.contains('hidden')))
 }
-
-function toggleContact() {
-  const panel = document.querySelector('#contactPanel')
-  panel.classList.toggle('hidden')
-
-  const cards = panel.querySelectorAll('.card')
-  if (!panel.classList.contains('hidden')) {
-    cards.forEach((card, i) => {
-      card.style.animation = 'none'
-      card.offsetHeight
-      card.style.animation = `anim-card-pop 0.4s ${(cards.length - 1 - i) * 0.2}s forwards ease-out`
-    })
-  } else {
-    cards.forEach(card => card.style.animation = 'none')
-  }
-}
-
-
-
-// window.addEventListener("load", () => {
-//   const cgm = fetch(`https://cgm-tracker.herokuapp.com/`)
-//     // .then(console.log('cgm woken up'))
-
-//   const bgg = fetch(`https://bgg-lister-client.herokuapp.com/`)
-//     // .then( console.log('bgg woken up'))
-
-//   const touring = fetch(`https://touring-interurban.herokuapp.com`)
-//     // .then( console.log('ti woken up'))
-
-//   const pi = fetch('https://personal-inventory.herokuapp.com/')
-//     // .then( console.log('form woken up'))
-//   return Promise.all([
-//   cgm,
-//   bgg, 
-//   touring,
-//   pi
-//   ]).then(res =>  res.forEach((ele, i) => {
-//     console.log( `${i + 1}: ${ele.status}`);
-   
-//   })
-// )})
