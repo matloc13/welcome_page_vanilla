@@ -4,6 +4,7 @@ footer {
   padding: 5%;
   display: flex;
   flex-flow: row-reverse;
+  font-size: 24px;
 
   a {
     @extend %a-link;
@@ -39,6 +40,7 @@ footer {
     // background: linear-gradient($white 0%, $lightblue 100%);
     box-shadow: 0 6px 18px $lightblue  inset;
     align-self: flex-end;
+    padding: 3px 0;
   }
 
 

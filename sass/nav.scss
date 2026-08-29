@@ -29,6 +29,7 @@ nav {
 .section-nav {
   width: 100%;
   position: sticky;
+  height: 0;
   top: 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;

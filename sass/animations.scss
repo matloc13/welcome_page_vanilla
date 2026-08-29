@@ -37,13 +37,24 @@
   }
 }
 
+@keyframes anim-dd-up {
+  from {
+    transform: translateX(max(230px, 55%)) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(max(230px, 55%)) translateY(-28px);
+    opacity: 01;
+  }
+}
+
 @keyframes anim-dd-right {
   from {
     transform: translateX(0);
     opacity: 1;
   }
   to {
-    transform: translateX(55%);
+    transform: translateX(max(228px, 55%));
     opacity: 1;
   }
 }

@@ -50,23 +50,24 @@ title.forEach(t => {
   titleObserver.observe(t)
 })
 
-
-// dd rise then slide right
-const dl = document.querySelector('dl.table')
-const dds = document.querySelectorAll('dl.table dd')
+// dd rise → slide right → float up
+const dl = document.querySelector('dl.table');
+const dds = document.querySelectorAll('dl.table dd');
 
 const ddObserver = new IntersectionObserver((entries) => {
   entries.forEach((rep) => {
     if (rep.isIntersecting) {
       dl.style.opacity = '1'
+      // dl.style.animation = 'anim-right 1s forwards ease-in-out'
       dds.forEach((dd, i) => {
         dd.style.animation = `anim-dd-rise 0.4s ${i * 0.15}s forwards ease-out`
       })
       const last = dds[dds.length - 1]
       last.addEventListener('animationend', () => {
-        dds.forEach((dd) => {
-          dd.style.animation = 'anim-dd-right 1s forwards ease-in-out'
-        })
+        dds.forEach(dd => { dd.style.animation = 'anim-dd-right 1s forwards ease-in-out' })
+        last.addEventListener('animationend', () => {
+          dds.forEach(dd => { dd.style.animation = 'anim-dd-up 0.7s forwards ease-in' })
+        }, { once: true })
       }, { once: true })
     } else {
       dl.style.opacity = '0'
@@ -283,6 +284,7 @@ if (mapsWrapper) {
         ctx2.arc(n.x, n.y, NODE_RADIUS + NODE_RADIUS * 3.5 * sp, 0, Math.PI * 2)
         ctx2.strokeStyle = `rgba(31, 20, 189, ${(1 - sp) * 0.5})`
         ctx2.lineWidth = 1.5
+
         ctx2.stroke()
       }
 
