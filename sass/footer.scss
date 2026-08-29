@@ -42,6 +42,7 @@ footer {
     width: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
     opacity: 1;
 
     a {
@@ -68,6 +69,35 @@ footer {
       grid-column: 2;
       grid-row: 2;
       place-content: center;
+    }
+  }
+}
+
+@media (min-width: 430px) and (max-width: 932px) {
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 4% 0;
+  }
+
+  .contactCardContainer {
+    flex-direction: column;
+    width: 100%;
+
+    .card {
+      width: 100%;
+      justify-items: center;
+      text-align: center;
+
+      a, .contact-trigger {
+        grid-column: 1;
+        padding: 1% 0;
+      }
+
+      .form {
+        grid-column: 1;
+        text-align: center;
+      }
     }
   }
 }
