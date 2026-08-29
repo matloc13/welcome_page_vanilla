@@ -14,3 +14,26 @@
     white-space: nowrap;
   }
 }
+
+
+@media (min-width: 430px) and (max-width: 932px) {
+
+  .contact {
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  background-image: linear-gradient( rgb(238, 224, 233),rgb(216, 237, 255));
+  background-position: center;
+  background-size: contain;
+
+  .title {
+    display: none;
+    grid-column: 2 / 4;
+    text-align: right;
+    color: $darkblue;
+    white-space: nowrap;
+  }
+}
+
+}
