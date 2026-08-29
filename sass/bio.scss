@@ -2,22 +2,32 @@
   text-align: left;
   width: 100%;
   height: 100%;
-  padding: 2%;
+  padding: 0 2%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 0.2fr 1fr;
-  background-color: lighten($lightblue, 4%);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 194px 1fr 0.2fr 1fr;
+  background-image: linear-gradient(lighten($lightblue, 4%), rgb(216, 237, 255) );
 
   .head {
     padding: 2%;
     color: $darkblue;
+    grid-column: 2 / 4;
 
     a {
       @extend %a-link;
     }
 
-    h3 {
+    .bio-name {
+      font-size: 1.8em;
+      font-weight: 700;
+      margin: 0.4em 0 0.2em;
+    }
+
+    .bio-role {
+      font-size: 1em;
+      margin: 0 0 0.8em;
       box-shadow: 0 1px lighten($red, 10%);
+      display: inline-block;
     }
   }
 
@@ -26,40 +36,65 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    min-width: 190px;
+    min-height: 266px;
     width: 35%;
     height: 90%;
     margin: -129px 50px;
     border: 8px solid $lightgrey;
     z-index: 2;
+    grid-row: 2;
+    grid-column: 1;
   }
 
   .article {
     width: 90%;
-    padding: 2%;
-    grid-column: 1/2;
+    padding: 0 2%;
+    grid-column: 2/4;
+    grid-row: 2;
     box-shadow: 0 0 1px lighten($darkgrey, 20%);
     font-family: 'Hind Madurai', sans-serif;
-    line-height: 1.6em;
+    line-height: 1.5em;
+    font-size: 18px;
+    
   }
 
   h2 {
     grid-row: 3;
-    grid-column: 2/3;
+    grid-column: 1;
     justify-content: center;
-    margin: 0;
+    margin: 8px 0 0;
     color: $red;
     text-align: center;
+
+    &.pos-center { grid-column: 2; }
+    &.pos-right  { grid-column: 3; }
   }
 
   .table {
-    grid-column: 2/3;
+    grid-column: 1/4;
     grid-row: 4;
+
+    &.pos-center { grid-column: 2/3; }
+    &.pos-right  { grid-column: 3/4; }
     width: 90%;
     padding: 2%;
+    overflow: hidden;
 
-    td {
+    dt {
+      color: $darkblue;
+      font-weight: 600;
+      margin-top: 0.5em;
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    dd {
       color: $darkgrey;
-      padding: 1%;
+      margin: 0.1em 0 0 0;
+      opacity: 0;
+      width: 36%;
 
       &:hover {
         color: $red;

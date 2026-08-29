@@ -1,0 +1,138 @@
+// ── theme toggle button ──────────────────────────────────────────────
+.theme-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1% 2%;
+  margin: 0 1%;
+  font-family: 'Hind Madurai', sans-serif;
+  font-size: inherit;
+  color: $darkgrey;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+
+  &:hover { color: $red; }
+}
+
+// ── dark mode overrides ──────────────────────────────────────────────
+[data-theme="dark"] {
+  body {
+    background-color: rgb(12, 17, 27);
+    color: $lightblue;
+  }
+
+  .theme-btn {
+    border-color: $darkgrey;
+    color: $darkgrey;
+  }
+
+  header {
+    background-image: none;
+    // background-color: rgb(12, 17, 27);
+
+    h1 { 
+      color: $white;
+      text-shadow: 1px -1px 15px $lightblue;
+      position: relative;
+     }
+
+    .headerBar {
+
+    }
+  }
+
+  nav .navLinks {
+    background-image: linear-gradient(to right, transparent 25%, rgb(18, 26, 40) 99%);
+    li a { color: $lightblue; }
+  }
+
+  .section-nav {
+    .navLinks li a { color: $lightblue; }
+
+    &.section-nav--left .navLinks {
+      background-image: linear-gradient(to left, transparent 25%, rgb(18, 26, 40) 99%);
+    }
+    &.section-nav--right .navLinks {
+      background-image: linear-gradient(to right, transparent 25%, rgb(18, 26, 40) 99%);
+    }
+  }
+
+  .bioDiv {
+    background-image: linear-gradient(rgb(18, 26, 40), rgb(12, 17, 27));
+
+    .head { color: $lightblue; }
+
+    .article {
+      color: $lightblue;
+      box-shadow: 0 0 1px rgb(40, 60, 90);
+    }
+
+    h2 { color: $red; }
+
+    .table {
+      dt { color: $lightblue; }
+      dd { color: $darkgrey; }
+    }
+  }
+
+  .archive {
+    background-image: linear-gradient(rgb(18, 26, 40), rgb(12, 17, 27));
+  }
+
+  .maps-wrapper {
+    background-color: rgb(12, 17, 27);
+  }
+
+  .contact {
+    background-image: linear-gradient(rgb(24, 34, 52), rgb(18, 26, 40));
+    .title { color: $lightblue; }
+  }
+
+  .rain-section {
+    background: rgb(12, 17, 27);
+  }
+
+  footer {
+    background-color: rgb(8, 12, 20);
+  }
+
+  .contactCardContainer .card {
+    background-image: linear-gradient(rgb(22, 33, 48), rgb(12, 17, 27));
+    a, .contact-trigger { color: $lightblue; }
+  }
+
+  .footer-name { color: $red; }
+
+.scroll-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid $white;
+    border-bottom: 2px solid $white;
+  }
+
+  &--up {
+    &::before { transform: rotate(-135deg); }
+    &.active { animation: arrow-bounce-up 1.4s ease-in-out infinite; }
+  }
+
+  &--down {
+    &::before { transform: rotate(45deg); }
+    &.active { animation: arrow-bounce-down 1.4s ease-in-out infinite; }
+  }
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+}

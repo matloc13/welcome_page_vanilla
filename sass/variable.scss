@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Federo|IM+Fell+DW+Pica&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Hind+Madurai:400,600&display=swap');
 $white: rgb(244, 246, 249);
-$red: rgb(194, 57, 52);
+$red: rgb(210, 44, 11);
 $lightblue: rgb(216, 237, 255);
-$lightgrey: rgb(224, 229, 238);
+$lightgrey: rgb(238, 224, 233);
 $darkgrey: rgb(128, 143, 166);
-$darkblue: rgb(22, 50, 92);
+$darkblue: rgb(22, 33, 48);
+$darkbrown: rgba(4, 3, 1, 0.9);
+$middlebrown: rgba(20, 14, 5, 0.9);
+$lightbrown: rgba(63, 57, 46, 0.983);
+
 
 %a-link {
   color: $red;

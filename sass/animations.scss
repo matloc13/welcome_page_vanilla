@@ -1,3 +1,88 @@
+.scroll-arrows {
+  position: fixed;
+  right: 1rem;
+  bottom: 2rem;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.scroll-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 5px;
+    border-right: 2px solid $lightbrown;
+    border-bottom: 2px solid $lightbrown;
+  }
+
+  &--up::before { transform: rotate(-135deg); }
+  &--down::before { transform: rotate(45deg); }
+
+  &.active { opacity: 1; }
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes anim-card-pop {
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes anim-dd-rise {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes anim-dd-up {
+  from {
+    transform: translateX(max(230px, 55%)) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(max(230px, 55%)) translateY(-28px);
+    opacity: 01;
+  }
+}
+
+@keyframes anim-dd-right {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(max(228px, 55%));
+    opacity: 1;
+  }
+}
+
+
 @keyframes anim1 {
   from {
     transform: translateY(100px);
