@@ -50,6 +50,11 @@
     }
   }
 }
+
+ .title{
+    animation: anim-title-left 25s linear infinite;
+    white-space: nowrap;
+  }
 @media (max-width: 510px) {
   .contact {
     padding: 1%;

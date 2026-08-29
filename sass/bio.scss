@@ -52,11 +52,17 @@
     margin: 0;
     color: $red;
     text-align: center;
+
+    &.pos-center { grid-column: 2; }
+    &.pos-right  { grid-column: 3; }
   }
 
   .table {
     grid-column: 1/4;
     grid-row: 4;
+
+    &.pos-center { grid-column: 2/3; }
+    &.pos-right  { grid-column: 3/4; }
     width: 90%;
     padding: 2%;
     overflow: hidden;

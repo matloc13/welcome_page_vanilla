@@ -1,8 +1,12 @@
-#maps {
+.maps-wrapper {
   position: relative;
+  background-color: $lightgrey;
+}
+
+#maps {
+  position: sticky;
+  top: 0;
   width: 100%;
-  min-height: 460px;
-  background-color: $darkblue;
   overflow: hidden;
 
   .maps-canvas {

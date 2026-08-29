@@ -1,7 +1,7 @@
 footer {
   color: $red;
   background-color: $darkblue;
-  padding: 7%;
+  padding: 5%;
   display: flex;
   flex-flow: row-reverse;
 
@@ -17,6 +17,12 @@ footer {
   left: 0;
   right: 0;
   z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+
+  &.visible {
+    transform: translateY(0);
+  }
 }
 
 .contact-panel {
@@ -25,6 +31,16 @@ footer {
   overflow: hidden;
   max-height: 1000px;
   transition: max-height 0.5s ease-in-out;
+  text-align: right;
+  padding: 2% 5%;
+  align-items: flex-end;
+
+  .card {
+    // background: linear-gradient($white 0%, $lightblue 100%);
+    box-shadow: 0 6px 18px $lightblue  inset;
+    align-self: flex-end;
+  }
+
 
   &.hidden {
     max-height: 0;
